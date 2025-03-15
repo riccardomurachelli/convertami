@@ -39,7 +39,7 @@ function convertFile() {
 
 document.addEventListener("DOMContentLoaded", function() {
   const targetFormatSelect = document.getElementById("targetFormat");
-  const formats = ["png", "jpg", "webp"];
+  const formats = ["png", "jpg", "webp", "gif"];
   targetFormatSelect.innerHTML = "";
   formats.forEach(fmt => {
     let option = document.createElement("option");

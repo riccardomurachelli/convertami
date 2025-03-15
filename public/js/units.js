@@ -41,7 +41,6 @@ function populateUnits(category) {
 function switchCategory(category) {
   currentCategory = category;
   populateUnits(category);
-  // Aggiorna lo stile dei tab: aggiunge la classe "active" al tab selezionato
   document.querySelectorAll('.tab-button').forEach(btn => {
     btn.classList.remove('active');
   });

@@ -1,22 +1,33 @@
-const currencies = ["EUR", "USD", "GBP"];
+async function fetchCurrencies() {
+  try {
+    const response = await fetch('/api/currencies');
+    const data = await response.json();
+    if (data.currencies) {
+       populateCurrencies(data.currencies);
+    } else {
+       console.error("Error fetching currencies");
+    }
+  } catch (error) {
+    console.error("Error: ", error);
+  }
+}
 
-function populateCurrencies() {
-  const currencyFrom = document.getElementById("currencyFrom");
-  const currencyTo = document.getElementById("currencyTo");
-  currencyFrom.innerHTML = "";
-  currencyTo.innerHTML = "";
-  
-  currencies.forEach(currency => {
-    let optionFrom = document.createElement("option");
-    optionFrom.value = currency;
-    optionFrom.text = currency;
-    currencyFrom.appendChild(optionFrom);
-    
-    let optionTo = document.createElement("option");
-    optionTo.value = currency;
-    optionTo.text = currency;
-    currencyTo.appendChild(optionTo);
-  });
+function populateCurrencies(currencyList) {
+   const currencyFrom = document.getElementById("currencyFrom");
+   const currencyTo = document.getElementById("currencyTo");
+   currencyFrom.innerHTML = "";
+   currencyTo.innerHTML = "";
+   currencyList.forEach(currency => {
+      let optionFrom = document.createElement("option");
+      optionFrom.value = currency;
+      optionFrom.text = currency;
+      currencyFrom.appendChild(optionFrom);
+      
+      let optionTo = document.createElement("option");
+      optionTo.value = currency;
+      optionTo.text = currency;
+      currencyTo.appendChild(optionTo);
+   });
 }
 
 async function convertCurrency() {
@@ -42,4 +53,4 @@ async function convertCurrency() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", populateCurrencies);
+document.addEventListener("DOMContentLoaded", fetchCurrencies);
