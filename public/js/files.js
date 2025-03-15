@@ -39,12 +39,24 @@ function convertFile() {
 
 document.addEventListener("DOMContentLoaded", function() {
   const targetFormatSelect = document.getElementById("targetFormat");
-  const formats = ["png", "jpg", "webp", "gif"];
   targetFormatSelect.innerHTML = "";
-  formats.forEach(fmt => {
-    let option = document.createElement("option");
-    option.value = fmt;
-    option.text = fmt.toUpperCase();
-    targetFormatSelect.appendChild(option);
+  
+  const groups = [
+    { label: "Immagini", formats: ["png", "jpg", "webp", "gif"] },
+    { label: "Audio", formats: ["mp3", "wav", "aac", "flac", "ogg"] },
+    { label: "Video", formats: ["mp4", "avi", "mkv", "mov", "wmv"] },
+    { label: "Documenti", formats: ["pdf", "docx", "txt", "odt", "xlsx", "pptx"] }
+  ];
+  
+  groups.forEach(group => {
+    let optgroup = document.createElement("optgroup");
+    optgroup.label = group.label;
+    group.formats.forEach(fmt => {
+      let option = document.createElement("option");
+      option.value = fmt;
+      option.text = fmt.toUpperCase();
+      optgroup.appendChild(option);
+    });
+    targetFormatSelect.appendChild(optgroup);
   });
 });

@@ -88,11 +88,12 @@ button:hover {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .tab-button {
   padding: 10px 20px;
-  margin: 0 5px;
+  margin: 5px;
   background: #6c757d;
   color: #fff;
   border: none;

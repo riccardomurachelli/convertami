@@ -14,6 +14,28 @@ const units = {
   temperature: {
     "Celsius": "C",
     "Fahrenheit": "F"
+  },
+  filesize: {
+    "Bytes": 1,
+    "KB": 1024,
+    "MB": 1048576,
+    "GB": 1073741824,
+    "TB": 1099511627776
+  },
+  speed: {
+    "m/s": 1,
+    "km/h": 3.6,
+    "mph": 2.23694
+  },
+  area: {
+    "m²": 1,
+    "km²": 0.000001,
+    "Acres": 0.000247105
+  },
+  volume: {
+    "Litri": 1,
+    "Millilitri": 1000,
+    "Galloni": 0.264172
   }
 };
 
@@ -61,6 +83,11 @@ function convertUnits() {
     } else {
       result = value;
     }
+  } else if (currentCategory === "filesize") {
+    // Per filesize, il calcolo usa: valore * (factorFrom / factorTo)
+    let factorFrom = units[currentCategory][from];
+    let factorTo = units[currentCategory][to];
+    result = value * (factorFrom / factorTo);
   } else {
     let factorFrom = units[currentCategory][from];
     let factorTo = units[currentCategory][to];
