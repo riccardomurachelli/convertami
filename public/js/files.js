@@ -1,43 +1,50 @@
-const fileUnits = {
-    "Bytes": 1,
-    "KB": 1024,
-    "MB": 1024 * 1024,
-    "GB": 1024 * 1024 * 1024
-  };
+function convertFile() {
+  const fileInput = document.getElementById("fileInput");
+  const targetFormat = document.getElementById("targetFormat").value;
+  const file = fileInput.files[0];
   
-  function populateFileUnits() {
-    const fileFrom = document.getElementById("fileFrom");
-    const fileTo = document.getElementById("fileTo");
-    fileFrom.innerHTML = "";
-    fileTo.innerHTML = "";
-    
-    for (let unit in fileUnits) {
-      let optionFrom = document.createElement("option");
-      optionFrom.value = unit;
-      optionFrom.text = unit;
-      fileFrom.appendChild(optionFrom);
-      
-      let optionTo = document.createElement("option");
-      optionTo.value = unit;
-      optionTo.text = unit;
-      fileTo.appendChild(optionTo);
-    }
+  if (!file) {
+    alert("Seleziona un file");
+    return;
   }
   
-  function convertFiles() {
-    let value = parseFloat(document.getElementById("inputSize").value);
-    let from = document.getElementById("fileFrom").value;
-    let to = document.getElementById("fileTo").value;
-    if (isNaN(value)) {
-      alert("Inserisci un valore numerico");
-      return;
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("targetFormat", targetFormat);
+  
+  fetch("/api/convertFile", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Conversione fallita");
     }
-    
-    let bytes = value * fileUnits[from]; // converto in bytes
-    let result = bytes / fileUnits[to]; // converto nel formato target
-    
-    document.getElementById("result").innerText = `Risultato: ${result.toFixed(2)} ${to}`;
-  }
-  
-  document.addEventListener("DOMContentLoaded", populateFileUnits);
-  
+    return response.blob();
+  })
+  .then(blob => {
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `converted.${targetFormat}`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.URL.revokeObjectURL(url);
+  })
+  .catch(err => {
+    alert(err.message);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  const targetFormatSelect = document.getElementById("targetFormat");
+  const formats = ["png", "jpg", "webp"];
+  targetFormatSelect.innerHTML = "";
+  formats.forEach(fmt => {
+    let option = document.createElement("option");
+    option.value = fmt;
+    option.text = fmt.toUpperCase();
+    targetFormatSelect.appendChild(option);
+  });
+});

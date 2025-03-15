@@ -9,11 +9,11 @@
 <body>
   <div class="container">
     <h1>Convertitore di Unità di Misura</h1>
-    <select id="category" onchange="populateUnits()">
-      <option value="length">Lunghezza</option>
-      <option value="weight">Peso</option>
-      <option value="temperature">Temperatura</option>
-    </select>
+    <div class="unit-tabs">
+      <button class="tab-button" id="tab-length" onclick="switchCategory('length')">Lunghezza</button>
+      <button class="tab-button" id="tab-weight" onclick="switchCategory('weight')">Peso</button>
+      <button class="tab-button" id="tab-temperature" onclick="switchCategory('temperature')">Temperatura</button>
+    </div>
     <input type="number" id="inputValue" placeholder="Inserisci valore">
     <select id="unitFrom"></select>
     <select id="unitTo"></select>

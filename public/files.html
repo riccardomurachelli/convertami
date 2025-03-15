@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convertami - File</title>
+  <title>Convertami - File Conversion</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Convertitore di File</h1>
-    <input type="number" id="inputSize" placeholder="Inserisci dimensione">
-    <select id="fileFrom"></select>
-    <select id="fileTo"></select>
-    <button onclick="convertFiles()">Converti</button>
-    <h2 id="result"></h2>
+    <h1>Convertitore di Formati File</h1>
+    <input type="file" id="fileInput">
+    <select id="targetFormat"></select>
+    <button onclick="convertFile()">Converti File</button>
     <a href="index.html" class="back-button">Torna Home</a>
   </div>
   <script src="js/files.js"></script>
