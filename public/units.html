@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convertami - Unità di Misura</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Convertitore di Unità di Misura</h1>
+    <select id="category" onchange="populateUnits()">
+      <option value="length">Lunghezza</option>
+      <option value="weight">Peso</option>
+      <option value="temperature">Temperatura</option>
+    </select>
+    <input type="number" id="inputValue" placeholder="Inserisci valore">
+    <select id="unitFrom"></select>
+    <select id="unitTo"></select>
+    <button onclick="convertUnits()">Converti</button>
+    <h2 id="result"></h2>
+    <a href="index.html" class="back-button">Torna Home</a>
+  </div>
+  <script src="js/units.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container, .home-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  input, select, button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+  }
+  
+  button {
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  .back-button {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007BFF;
+    border: 1px solid #007BFF;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .back-button:hover {
+    background: #007BFF;
+    color: #fff;
+  }
+  
+  .home-container h1 {
+    margin-bottom: 30px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .mega-button {
+    display: inline-block;
+    background: #28a745;
+    color: #fff;
+    text-decoration: none;
+    padding: 20px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    margin: 10px;
+    transition: transform 0.3s, background 0.3s;
+  }
+  
+  .mega-button:hover {
+    background: #218838;
+    transform: scale(1.05);
+  }
+  
