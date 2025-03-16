@@ -1,108 +1,162 @@
-/* Stili globali */
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
+/* Reset di base */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-.container, .home-container {
+/* Base styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #2C3E50, #4CA1AF);
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.header-container h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.header-container p {
+  font-size: 1.2rem;
+}
+
+/* Main container */
+main {
+  padding: 40px 20px;
+}
+
+/* Homepage Cards */
+.main-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: block;
+  background: #fff;
+  color: #333;
+  text-decoration: none;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-size: 1.5rem;
+  font-weight: 500;
+  min-width: 200px;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Container for internal pages */
+.container {
   max-width: 600px;
-  margin: 50px auto;
+  margin: 0 auto;
   background: #fff;
   padding: 30px;
   border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-h1 {
-  color: #333;
-}
-
-input, select, button {
-  padding: 10px;
-  margin: 10px;
-  font-size: 16px;
-}
-
-button {
-  background: #007BFF;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background: #0056b3;
-}
-
-.back-button {
-  display: inline-block;
-  margin-top: 20px;
-  text-decoration: none;
-  color: #007BFF;
-  border: 1px solid #007BFF;
-  padding: 10px 20px;
-  border-radius: 4px;
-  transition: background 0.3s, color 0.3s;
-}
-
-.back-button:hover {
-  background: #007BFF;
-  color: #fff;
-}
-
-/* Homepage */
-.home-container h1 {
-  margin-bottom: 30px;
-}
-
-.buttons-container {
+/* Tabs per Unità */
+.tabs {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
-}
-
-.mega-button {
-  display: inline-block;
-  background: #28a745;
-  color: #fff;
-  text-decoration: none;
-  padding: 20px 30px;
-  font-size: 18px;
-  border-radius: 8px;
-  margin: 10px;
-  transition: transform 0.3s, background 0.3s;
-}
-
-.mega-button:hover {
-  background: #218838;
-  transform: scale(1.05);
-}
-
-/* Tab per le Unità di Misura */
-.unit-tabs {
-  display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  flex-wrap: wrap;
 }
 
 .tab-button {
   padding: 10px 20px;
   margin: 5px;
-  background: #6c757d;
-  color: #fff;
+  background: #e9ecef;
   border: none;
-  cursor: pointer;
   border-radius: 4px;
+  cursor: pointer;
   transition: background 0.3s;
+  font-weight: 500;
+}
+
+.tab-button:hover {
+  background: #ced4da;
 }
 
 .tab-button.active {
   background: #007BFF;
-  cursor: default;
+  color: #fff;
+}
+
+/* Form elements */
+.input-field, .select-field {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Bottone di azione */
+.action-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin: 20px 0;
+}
+
+.action-button:hover {
+  background: #0056b3;
+}
+
+/* Testo risultato */
+.result-text {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #28a745;
+  margin-top: 20px;
+}
+
+/* Link "Torna Home" */
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: 500;
+}
+
+/* Footer */
+footer {
+  background: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 0.9rem;
 }

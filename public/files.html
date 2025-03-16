@@ -4,16 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Convertami - File Conversion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/files.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Convertitore di File</h1>
-    <input type="file" id="fileInput">
-    <select id="targetFormat"></select>
-    <button onclick="convertFile()">Converti File</button>
-    <a href="index.html" class="back-button">Torna Home</a>
-  </div>
-  <script src="js/files.js"></script>
+  <header>
+    <div class="header-container">
+      <h1>File Conversion</h1>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <input type="file" id="fileInput" class="input-field">
+      <select id="targetFormat" class="select-field"></select>
+      <button onclick="convertFile()" class="action-button">Converti File</button>
+      <a href="index.html" class="back-link">Torna Home</a>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Convertami. Tutti i diritti riservati.</p>
+  </footer>
 </body>
 </html>

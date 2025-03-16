@@ -4,18 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Convertami - Valute</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/currencies.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Convertitore di Valute</h1>
-    <input type="number" id="inputAmount" placeholder="Inserisci importo">
-    <select id="currencyFrom"></select>
-    <select id="currencyTo"></select>
-    <button onclick="convertCurrency()">Converti</button>
-    <h2 id="result"></h2>
-    <a href="index.html" class="back-button">Torna Home</a>
-  </div>
-  <script src="js/currencies.js"></script>
+  <header>
+    <div class="header-container">
+      <h1>Valute</h1>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <input type="number" id="inputAmount" placeholder="Inserisci importo" class="input-field">
+      <select id="currencyFrom" class="select-field"></select>
+      <select id="currencyTo" class="select-field"></select>
+      <button onclick="convertCurrency()" class="action-button">Converti</button>
+      <h2 id="result" class="result-text"></h2>
+      <a href="index.html" class="back-link">Torna Home</a>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Convertami. Tutti i diritti riservati.</p>
+  </footer>
 </body>
 </html>
