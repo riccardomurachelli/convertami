@@ -12,7 +12,25 @@ body {
   color: #333;
   line-height: 1.6;
 }
-
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 /* Header */
 header {
   background: linear-gradient(135deg, #2C3E50, #4CA1AF);
