@@ -12,7 +12,6 @@
     <div class="header-container">
       <h1>Convertami</h1>
       <p>Il convertitore universale professionale</p>
-      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
     </div>
   </header>
   <main>
@@ -25,26 +24,5 @@
   <footer>
     <p>&copy; 2025 Convertami. Tutti i diritti riservati.</p>
   </footer>
-
-  <!-- Dark mode toggle + persistenza -->
-  <script>
-    (function() {
-      const btn = document.getElementById('theme-toggle');
-      const root = document.documentElement;
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-      // Applica la preferenza salvata o di sistema
-      if (saved === 'dark' || (!saved && prefersDark)) {
-        root.classList.add('dark');
-      }
-
-      // Toggle on click
-      btn.addEventListener('click', () => {
-        const isDark = root.classList.toggle('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
-    })();
-  </script>
 </body>
 </html>
