@@ -191,7 +191,10 @@ footer {
   background: #343a40;
   color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 10px 0;
   margin-top: 40px;
   font-size: 0.9rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
