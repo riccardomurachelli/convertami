@@ -4,10 +4,10 @@ function setTheme(isDark) {
     const button = document.querySelector('.theme-toggle');
     if (isDark) {
       body.classList.add('dark-mode');
-      button.textContent = 'Modalità Chiara';
+      button.textContent = '☀️ Modalità Chiara';
     } else {
       body.classList.remove('dark-mode');
-      button.textContent = 'Modalità Scura';
+      button.textContent = '🌙 Modalità Scura';
     }
   }
   

@@ -50,11 +50,20 @@ body.dark-mode {
 }
 /* Header */
 header {
-  background: linear-gradient(135deg, #2C3E50, #4CA1AF);
+  background: linear-gradient(135deg, #FF7E5F, #FEB47B);
   color: #fff;
   padding: 40px 20px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-size: 200% 200%;
+  animation: gradient-animation 6s ease infinite;
+}
+
+body.dark-mode header {
+  background: linear-gradient(135deg, #6A11CB, #2575FC);
+  color: #fff;
+  background-size: 200% 200%;
+  animation: gradient-animation 6s ease infinite;
 }
 
 .header-container h1 {
@@ -65,6 +74,19 @@ header {
 
 .header-container p {
   font-size: 1.2rem;
+}
+
+/* Gradient animation */
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Main container */
@@ -184,6 +206,22 @@ main {
   text-decoration: none;
   color: #007BFF;
   font-weight: 500;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #4d4747;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.dark-mode .theme-toggle {
+  background-color: #e4e46b;
+  color: #000000;
 }
 
 /* Footer */

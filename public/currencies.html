@@ -9,8 +9,9 @@
   <script src="js/theme.js"></script>
   <script defer src="js/currencies.js"></script>
 </head>
-<body>
-  <button class="theme-toggle" onclick="toggleDarkMode()">Modalità Scura</button>
+<body onload="applyThemeOnLoad()">
+        <a href="index.html" class="back-link">Torna Home</a>
+  <button class="theme-toggle" onclick="toggleDarkMode()"></button>
   <header>
     <div class="header-container">
       <h1>Valute</h1>
@@ -23,7 +24,7 @@
       <select id="currencyTo" class="select-field"></select>
       <button onclick="convertCurrency()" class="action-button">Converti</button>
       <h2 id="result" class="result-text"></h2>
-      <a href="index.html" class="back-link">Torna Home</a>
+
     </div>
   </main>
   <footer>
