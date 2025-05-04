@@ -10,6 +10,7 @@
   <script defer src="js/files.js"></script>
 </head>
 <body onload="applyThemeOnLoad()">
+  <button class="torna-home" onclick="window.location.href='index.html'">Torna alla Home</button>
   <button class="theme-toggle" onclick="toggleDarkMode()"></button>
   <header>
     <div class="header-container">
@@ -18,12 +19,36 @@
   </header>
   <main>
     <div class="container">
-      <input type="file" id="fileInput" class="input-field">
-      <select id="targetFormat" class="select-field"></select>
-      <button onclick="convertFile()" class="action-button">Converti File</button>
-      <a href="index.html" class="back-link">Torna Home</a>
+      <!-- Step 1: Upload File -->
+      <div class="step active" data-step="1">
+        <div class="file-upload" id="dropZone">
+          <input type="file" id="fileInput" class="input-field">
+          <div class="upload-content">
+            <img src="/img/upload.svg" class="upload-icon" alt="Carica file">
+            <span class="upload-label">Trascina il file o clicca per caricare</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Select Format -->
+      <div class="step" data-step="2">
+        <select id="targetFormat" class="select-field"></select>
+        <button onclick="convertFile()" class="action-button">Converti File</button>
+      </div>
+
+      <!-- Step 3: Conversion Progress -->
+      <div class="step" data-step="3">
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="progress-text">0%</div>
+          <div class="progress-status">Inizializzazione...</div>
+        </div>
+      </div>
     </div>
   </main>
+  <div class="conversion-motto">Con il nostro amore, abbiamo convertito <span id="conversionCount">0</span> files!</div>
   <footer>
     <p>&copy; 2025 Convertami. Tutti i diritti riservati.</p>
   </footer>

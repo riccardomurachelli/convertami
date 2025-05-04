@@ -199,13 +199,22 @@ main {
 }
 
 /* Link "Torna Home" */
-.back-link {
-  display: block;
-  text-align: center;
-  margin-top: 20px;
+.torna-home {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  background-color: #ff4322;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   text-decoration: none;
-  color: #007BFF;
   font-weight: 500;
+}
+.dark-mode .torna-home {
+  background-color: #ff4322;
+  color: #000000;
 }
 
 .theme-toggle {
@@ -235,4 +244,185 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+.step {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+.step.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.file-upload {
+  display: block;
+  text-align: center;
+  padding: 30px;
+  border: 2px dashed #ced4da;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+.file-upload:hover {
+  border-color: #007bff;
+}
+.upload-label {
+  color: #666;
+  font-size: 1.1rem;
+}
+.dark-mode .upload-label {
+  color: #ccc;
+}
+
+.progress-container {
+  text-align: center;
+  margin: 20px 0;
+}
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background-color: #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #FF7E5F, #FEB47B);
+  transition: width 0.3s ease;
+}
+.dark-mode .progress-fill {
+  background: linear-gradient(90deg, #6A11CB, #2575FC);
+}
+.progress-text {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #333;
+}
+.dark-mode .progress-text {
+  color: #fff;
+}
+.progress-status {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+}
+.dark-mode .progress-status {
+  color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+    margin: 10px;
+  }
+  .header-container h1 {
+    font-size: 2rem;
+  }
+}
+.conversion-motto {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 1.2rem;
+  color: #666;
+  animation: fadeInUp 0.8s ease;
+}
+
+.dark-mode .conversion-motto {
+  color: #90caf9;
+}
+
+#conversionCount {
+  font-weight: bold;
+  color: #ff7e5f;
+  transition: color 0.3s ease;
+}
+
+.dark-mode #conversionCount {
+  color: #6a11cb;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 30px;
+}
+
+.upload-icon {
+  width: 80px;
+  height: 80px;
+  filter: invert(30%);
+  transition: transform 0.3s ease;
+}
+
+.dark-mode .upload-icon {
+  filter: invert(80%);
+}
+
+.file-upload:hover .upload-icon {
+  transform: scale(1.1);
+}
+
+.input-field {
+  display: none;
+}
+
+.file-upload {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+}
+
+.upload-label {
+  font-size: 1.1rem;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.dark-mode .upload-label {
+  color: #ccc;
+}
+
+.file-upload:hover .upload-label {
+  color: #007bff;
+}
+.drag-over {
+  border-color: #007bff !important;
+  background-color: rgba(0, 123, 255, 0.1) !important;
+}
+
+.dark-mode .drag-over {
+  border-color: #6a11cb !important;
+  background-color: rgba(106, 17, 203, 0.1) !important;
+}
+
+#dropZone {
+  border: 2px dashed #ced4da;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.upload-content {
+  pointer-events: none; /* Permette il click attraverso l'elemento */
+}
+
+.input-field {
+  display: none;
 }
