@@ -1,3 +1,4 @@
+/* TODO: Dare una sistemata a sto codice del cazzo */
 /* Reset di base */
 * {
   margin: 0;
@@ -48,33 +49,70 @@ body.dark-mode {
 .dark-mode .select-field::placeholder {
   color: #bbbbbb;
 }
-/* Header */
+:root {
+  --header-height: 20px;    /* valore di fallback */
+}
+
+/* header fisso in cima */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 20px;
   background: linear-gradient(135deg, #FF7E5F, #FEB47B);
   color: #fff;
-  padding: 40px 20px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  background-size: 200% 200%;
-  animation: gradient-animation 6s ease infinite;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: padding 0.3s ease;
+  z-index: 1000;
 }
 
-body.dark-mode header {
-  background: linear-gradient(135deg, #6A11CB, #2575FC);
-  color: #fff;
-  background-size: 200% 200%;
-  animation: gradient-animation 6s ease infinite;
+/* header shrink */
+header.shrink {
+  padding: 10px 20px;
 }
 
+/* invece di main, spingiamo tutto il body giù */
+body {
+  padding-top: var(--header-height);
+  padding-top: calc(var(--header-height) + 40px); 
+  transition: padding-top 0.3s ease;
+}
+
+/* nav interno */
+header nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: .5rem;
+  margin-bottom: .5rem;
+}
+
+/* titolo / paragrafo */
 .header-container h1 {
   font-size: 3rem;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
+  margin: 0;
+  transition: font-size 0.3s ease;
 }
-
 .header-container p {
   font-size: 1.2rem;
+  margin: 0;
+  transition: font-size 0.3s ease, visibility 0.3s ease;
 }
+
+/* shrink testo */
+header.shrink .header-container h1 {
+  font-size: 1.2rem;
+  text-align: center;
+}
+header.shrink .header-container p {
+  visibility: hidden;
+}
+
+/* dark mode override */
+body.dark-mode header {
+  background: linear-gradient(135deg, #6A11CB, #2575FC);
+}
+
 
 /* Gradient animation */
 @keyframes gradient-animation {
@@ -87,11 +125,6 @@ body.dark-mode header {
   100% {
     background-position: 0% 50%;
   }
-}
-
-/* Main container */
-main {
-  padding: 40px 20px;
 }
 
 /* Homepage Cards */
@@ -217,6 +250,17 @@ main {
   color: #000000;
 }
 
+.dark-mode .theme-toggle {
+  background-color: #e4e46b;
+  color: #000000;
+}
+/* Aggiungi queste regole al tuo CSS esistente */
+body {
+  transition: 
+    background-color 0.4s ease,
+    color 0.3s ease;
+}
+
 .theme-toggle {
   position: fixed;
   top: 10px;
@@ -227,11 +271,43 @@ main {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: 
+    background-color 0.3s ease, 
+    transform 0.2s ease, 
+    box-shadow 0.3s ease;
+  overflow: hidden;
 }
-.dark-mode .theme-toggle {
-  background-color: #e4e46b;
-  color: #000000;
+
+/* Animazione Ripple */
+body.animating::before {
+  content: '';
+  position: fixed;
+  top: calc(var(--y) - 50%); /* Centra verticalmente */
+  left: calc(var(--x) - 50%); /* Centra orizzontalmente */
+  width: 100vmax;
+  height: 100vmax;
+  background: radial-gradient(
+    circle at center, 
+    rgba(255,255,255,0.25) 0%, 
+    rgba(255,255,255,0) 70%
+  );
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple 0.6s ease-out;
+  pointer-events: none;
+  z-index: 9999;
 }
+
+@keyframes ripple {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
 
 /* Footer */
 footer {
@@ -379,10 +455,6 @@ footer {
   transform: scale(1.1);
 }
 
-.input-field {
-  display: none;
-}
-
 .file-upload {
   position: relative;
   overflow: hidden;
@@ -421,8 +493,4 @@ footer {
 
 .upload-content {
   pointer-events: none; /* Permette il click attraverso l'elemento */
-}
-
-.input-field {
-  display: none;
 }

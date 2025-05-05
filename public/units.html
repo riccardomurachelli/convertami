@@ -1,3 +1,6 @@
+# TODO: Sistemare distanza da header a sezione
+# TODO: Sistemare distanza da bordi a bottoni
+# TODO: Sistemare responsive, not good su telefoni ziopera
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -6,37 +9,61 @@
   <title>Convertami - Unità di Misura</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <script src="js/theme.js"></script>
-  <script defer src="js/units.js"></script>
+  <script src="js/theme.js" defer></script>
+  <script src="js/units.js" defer></script>
 </head>
-<body onload="applyThemeOnLoad()">
-  <button class="torna-home" onclick="window.location.href='index.html'">Torna alla Home</button>
-  <button class="theme-toggle" onclick="toggleDarkMode()"></button>
+<body>
   <header>
+    <nav aria-label="Navigazione principale">
+      <button class="torna-home" onclick="window.location.href='index.html'">← Torna alla Home</button>
+      <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleDarkMode(event)"></button>
+    </nav>
     <div class="header-container">
-      <h1>Unità di Misura</h1>
+      <h1>Convertami: Unità di Misura</h1>
+      <p>Strumento di conversione rapido e completo</p>
     </div>
   </header>
+
   <main>
-    <div class="container">
-      <div class="tabs">
-        <button class="tab-button" id="tab-length" onclick="switchCategory('length')">Lunghezza</button>
-        <button class="tab-button" id="tab-weight" onclick="switchCategory('weight')">Peso</button>
-        <button class="tab-button" id="tab-temperature" onclick="switchCategory('temperature')">Temperatura</button>
-        <button class="tab-button" id="tab-filesize" onclick="switchCategory('filesize')">File Size</button>
-        <button class="tab-button" id="tab-speed" onclick="switchCategory('speed')">Velocità</button>
-        <button class="tab-button" id="tab-area" onclick="switchCategory('area')">Area</button>
-        <button class="tab-button" id="tab-volume" onclick="switchCategory('volume')">Volume</button>
+    <section class="converter" aria-labelledby="converter-heading">
+      <h2 id="converter-heading" class="sr-only">Sezione di Conversione</h2>
+      <div class="tabs" role="tablist">
+        <button class="tab-button" role="tab" data-category="length" onclick="switchCategory('length')">Lunghezza</button>
+        <button class="tab-button" role="tab" data-category="weight" onclick="switchCategory('weight')">Peso</button>
+        <button class="tab-button" role="tab" data-category="temperature" onclick="switchCategory('temperature')">Temperatura</button>
+        <button class="tab-button" role="tab" data-category="filesize" onclick="switchCategory('filesize')">File Size</button>
+        <button class="tab-button" role="tab" data-category="speed" onclick="switchCategory('speed')">Velocità</button>
+        <button class="tab-button" role="tab" data-category="area" onclick="switchCategory('area')">Area</button>
+        <button class="tab-button" role="tab" data-category="volume" onclick="switchCategory('volume')">Volume</button>
+        <button class="tab-button" role="tab" data-category="time" onclick="switchCategory('time')">Tempo</button>
+        <button class="tab-button" role="tab" data-category="angle" onclick="switchCategory('angle')">Angolo</button>
+        <button class="tab-button" role="tab" data-category="energy" onclick="switchCategory('energy')">Energia</button>
+        <button class="tab-button" role="tab" data-category="power" onclick="switchCategory('power')">Potenza</button>
+        <button class="tab-button" role="tab" data-category="pressure" onclick="switchCategory('pressure')">Pressione</button>
+        <button class="tab-button" role="tab" data-category="frequency" onclick="switchCategory('frequency')">Frequenza</button>
       </div>
-      <input type="number" id="inputValue" placeholder="Inserisci valore" class="input-field">
-      <select id="unitFrom" class="select-field"></select>
-      <select id="unitTo" class="select-field"></select>
-      <button onclick="convertUnits()" class="action-button">Converti</button>
-      <h2 id="result" class="result-text"></h2>
-    </div>
+      <div class="controls">
+        <input type="number" id="inputValue" placeholder="Inserisci valore" class="input-field" aria-label="Valore da convertire">
+        <select id="unitFrom" class="select-field" aria-label="Unità di partenza"></select>
+        <button id="swapBtn" class="action-button" aria-label="Inverti unità" onclick="swapUnits()">⇄</button>
+        <select id="unitTo" class="select-field" aria-label="Unità di destinazione"></select>
+        <select id="precision" class="select-field" aria-label="Precisione decimali">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <button id="convertBtn" class="action-button" onclick="convertUnits()">Converti</button>
+      </div>
+      <div id="error" class="error-message" role="alert" style="display:none;"></div>
+      <h2 id="result" class="result-text" aria-live="polite"></h2>
+    </section>
+    <section class="history" aria-labelledby="history-heading">
+      <h3 id="history-heading">Cronologia (ultime 5)</h3>
+      <ul id="historyList" class="history-list"></ul>
+      <button onclick="exportHistory()" class="action-button">Esporta CSV</button>
+    </section>
   </main>
-  <footer>
-    <p>&copy; 2025 Convertami. Tutti i diritti riservati.</p>
-  </footer>
 </body>
 </html>

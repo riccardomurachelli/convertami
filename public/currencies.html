@@ -1,3 +1,5 @@
+# TODO: Sistemare distanza da header a sezione
+# TODO: Sistemare responsive, not good su telefoni ziopera
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -10,9 +12,11 @@
   <script defer src="js/currencies.js"></script>
 </head>
 <body onload="applyThemeOnLoad()">
-  <button class="torna-home" onclick="window.location.href='index.html'">Torna alla Home</button>
-  <button class="theme-toggle" onclick="toggleDarkMode()"></button>
   <header>
+    <nav aria-label="Navigazione principale">
+      <button class="torna-home" onclick="window.location.href='index.html'">← Torna alla Home</button>
+      <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleDarkMode(event)"></button>
+    </nav>
     <div class="header-container">
       <h1>Valute</h1>
     </div>

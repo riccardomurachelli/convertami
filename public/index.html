@@ -1,3 +1,5 @@
+# TODO: Sistemare distanza da header a sezione
+# TODO: Sistemare responsive, not good su telefoni ziopera
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -6,11 +8,13 @@
   <title>Convertami - Convertitore Universale</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <script src="js/theme.js"></script>
+  <script defer src="js/theme.js"></script>
 </head>
 <body onload="applyThemeOnLoad()"></body>
-  <button class="theme-toggle" onclick="toggleDarkMode()"></button>
   <header>
+    <nav aria-label="Navigazione principale">
+      <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleDarkMode(event)"></button>
+    </nav>
     <div class="header-container">
       <h1>Convertami</h1>
       <p>Il convertitore universale professionale</p>

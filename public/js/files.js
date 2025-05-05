@@ -1,4 +1,4 @@
-// TODO: controllare tutti i file che funzionino, da pdf a pptx non va
+// TODO: Provare le conversioni dei file
 // Drag and drop handlers
 const dropZone = document.getElementById('dropZone');
 

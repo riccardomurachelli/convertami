@@ -1,33 +1,58 @@
-// theme.js
 function setTheme(isDark) {
-    const body = document.body;
-    const button = document.querySelector('.theme-toggle');
-    if (isDark) {
-      body.classList.add('dark-mode');
-      button.textContent = '☀️ Modalità Chiara';
-    } else {
-      body.classList.remove('dark-mode');
-      button.textContent = '🌙 Modalità Scura';
-    }
+  const body = document.body;
+  const button = document.querySelector('.theme-toggle');
+  body.classList.remove('animating');
+  if (isDark) {
+    body.classList.add('dark-mode');
+    button.textContent = '☀️ Modalità Chiara';
+  } else {
+    body.classList.remove('dark-mode');
+    button.textContent = '🌙 Modalità Scura';
   }
-  
-  function toggleDarkMode() {
-    const isDark = document.body.classList.toggle('dark-mode');
+}
+
+function toggleDarkMode(event) {
+  const body = document.body;
+  const isDark = !body.classList.contains('dark-mode');
+  const { clientX: x, clientY: y } = event;
+  body.style.setProperty('--x', `${x}px`);
+  body.style.setProperty('--y', `${y}px`);
+  body.classList.add('animating');
+  setTimeout(() => {
+    body.classList.remove('animating');
     localStorage.setItem('darkMode', isDark);
     setTheme(isDark);
+  }, 300);
+}
+
+function applyThemeOnLoad() {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedTheme = localStorage.getItem('darkMode');
+  setTheme(savedTheme === null ? prefersDark : savedTheme === 'true');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header');
+  const body   = document.body;
+
+  function updateSpacing() {
+    const h = header.offsetHeight;
+    // 1) variabile CSS su :root (html)
+    document.documentElement.style.setProperty('--header-height', `${h}px`);
+    // 2) fallback diretto su body
+    body.style.paddingTop = `${h}px`;
   }
-  
-  function applyThemeOnLoad() {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('darkMode');
-    
-    if (savedTheme === null) {
-      // Se nessuna preferenza salvata, usa il tema del browser
-      setTheme(prefersDark);
-    } else {
-      setTheme(savedTheme === 'true');
-    }
-  }
-  
-  // Applica il tema al caricamento della pagina
-  document.addEventListener('DOMContentLoaded', applyThemeOnLoad);
+
+  // calcola subito
+  updateSpacing();
+
+  // dopo ogni transizione di padding dell’header
+  header.addEventListener('transitionend', e => {
+    if (e.propertyName === 'padding') updateSpacing();
+  });
+
+  // scroll: aggiungi/rimuovi shrink
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('shrink', window.scrollY > 0);
+  });
+});

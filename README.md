@@ -17,7 +17,7 @@ Convertami è un progetto progettato per semplificare e automatizzare le attivit
 1. Clone the repository:  
      Clona il repository:
         ```bash
-        git clone https://github.com/yourusername/convertami.git
+        git clone https://github.com/riccardomurachelli/convertami.git
         ```
 2. Navigate to the project directory:  
      Vai alla directory del progetto:
