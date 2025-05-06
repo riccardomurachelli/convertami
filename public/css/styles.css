@@ -1,4 +1,3 @@
-/* TODO: Dare una sistemata a sto codice del cazzo */
 /* Reset di base */
 * {
   margin: 0;
@@ -493,4 +492,37 @@ footer {
 
 .upload-content {
   pointer-events: none; /* Permette il click attraverso l'elemento */
+}
+/* 1) distanza tra header e prima section */
+section:first-of-type {
+  /* crea uno spazio sotto l’header fisso */
+  margin-top:25px;
+}
+
+/* 2) distanza tra bordi del container e i bottoni */
+.container button,
+.container .action-button,
+.tabs .tab-button {
+  /* spazio esterno intorno ai bottoni */
+  margin: 8px;
+}
+/* 1) Imposta il <body> come flex‐container verticale che occupa sempre 100vh */
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 2) Fai sì che la parte centrale cresca e spinga il footer in basso */
+main {
+  flex: 1;
+}
+
+/* 3) Rendi il footer statico (non più fissato) */
+footer {
+  position: static;   /* o relative, è equivalente qui */
+  margin-top: 40px;    /* opzionale: spazio sopra il footer */
 }
