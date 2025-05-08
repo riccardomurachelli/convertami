@@ -1,7 +1,7 @@
 <div align="center">  
   <h1>🎉 Convertami</h1>  
   <p>Il nostro amore per la conversione può sempre venire migliorato, contribuisci!</p>  
-  <img src="https://raw.githubusercontent.com/riccardomurachelli/convertami/img/banner.png" alt="Convertami Logo"/>  
+  <img src="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/banner.png" alt="Convertami Logo" style="width: 500px; height: auto;" />
 </div>
 
 ---
