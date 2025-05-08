@@ -165,11 +165,16 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Carica il contatore
   fetch('/api/stats')
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Errore nel caricamento delle statistiche');
+      }
+      return response.json();
+    })
     .then(data => {
       document.getElementById('conversionCount').textContent = data.total;
     })
-    .catch(() => console.log('Errore nel caricamento delle statistiche'));
+    .catch(error => console.error(error.message));
 
   fileInput.addEventListener('change', function() {
     if (this.files.length > 0) {

@@ -1,56 +1,77 @@
 async function fetchCurrencies() {
   try {
-    const response = await fetch('/api/currencies');
+    const response = await fetch('https://api.exchangerate-api.com/v4/latest/EUR');
     const data = await response.json();
-    if (data.currencies) {
-       populateCurrencies(data.currencies);
+    if (data.rates) {
+      return Object.keys(data.rates);
     } else {
-       console.error("Error fetching currencies");
+      console.error("Error fetching currencies");
+      return [];
     }
   } catch (error) {
     console.error("Error: ", error);
+    return [];
   }
 }
 
-function populateCurrencies(currencyList) {
-   const currencyFrom = document.getElementById("currencyFrom");
-   const currencyTo = document.getElementById("currencyTo");
-   currencyFrom.innerHTML = "";
-   currencyTo.innerHTML = "";
-   currencyList.forEach(currency => {
-      let optionFrom = document.createElement("option");
-      optionFrom.value = currency;
-      optionFrom.text = currency;
-      currencyFrom.appendChild(optionFrom);
-      
-      let optionTo = document.createElement("option");
-      optionTo.value = currency;
-      optionTo.text = currency;
-      currencyTo.appendChild(optionTo);
-   });
+async function populateCurrencies() {
+  const currencyList = await fetchCurrencies();
+  const currencyFrom = document.getElementById("currencyFrom");
+  const currencyTo = document.getElementById("currencyTo");
+  
+  // Pulisci le liste prima di popolare
+  currencyFrom.innerHTML = '';
+  currencyTo.innerHTML = '';
+
+  // Aggiungi opzioni per ogni valuta
+  currencyList.forEach(currency => {
+    const optionFrom = new Option(currency, currency);
+    const optionTo = new Option(currency, currency);
+    currencyFrom.add(optionFrom);
+    currencyTo.add(optionTo);
+  });
+
+  // Imposta valori di default
+  currencyFrom.value = 'EUR';
+  currencyTo.value = 'USD';
 }
 
 async function convertCurrency() {
-  let amount = document.getElementById("inputAmount").value;
-  let from = document.getElementById("currencyFrom").value;
-  let to = document.getElementById("currencyTo").value;
-  
+  const amount = document.getElementById("inputAmount").value;
+  const from = document.getElementById("currencyFrom").value;
+  const to = document.getElementById("currencyTo").value;
+  const resultElement = document.getElementById("result");
+
   if (!amount) {
     alert("Inserisci un importo");
     return;
   }
-  
+
+  const numericAmount = parseFloat(amount);
+  if (isNaN(numericAmount)) {
+    alert("Importo non valido");
+    return;
+  }
+
   try {
-    const response = await fetch(`/api/currency?from=${from}&to=${to}&amount=${amount}`);
+    const response = await fetch('https://api.exchangerate-api.com/v4/latest/EUR');
     const data = await response.json();
-    if(data.result !== undefined) {
-      document.getElementById("result").innerText = `Risultato: ${data.result.toFixed(2)} ${to}`;
-    } else {
-      document.getElementById("result").innerText = `Errore: ${data.error}`;
+    const rates = data.rates;
+
+    if (!rates[from] || !rates[to]) {
+      resultElement.innerText = "Una o più valute selezionate non sono valide";
+      return;
     }
+
+    // Calcola il tasso di conversione
+    const conversionRate = (rates[to] / rates[from]);
+    const result = numericAmount * conversionRate;
+
+    resultElement.innerText = `Risultato: ${result.toFixed(2)} ${to}`;
   } catch (error) {
-    document.getElementById("result").innerText = "Errore nella conversione.";
+    console.error("Errore nella conversione:", error);
+    resultElement.innerText = "Errore durante la conversione. Riprova più tardi.";
   }
 }
 
-document.addEventListener("DOMContentLoaded", fetchCurrencies);
+document.addEventListener("DOMContentLoaded", populateCurrencies);
