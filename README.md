@@ -1,52 +1,66 @@
-# Convertami / Convertami (Italiano)
+<div align="center">  
+  <h1>🎉 Convertami</h1>  
+  <p>Il nostro amore per la conversione può sempre venire migliorato, contribuisci!</p>  
+  <img src="https://raw.githubusercontent.com/riccardomurachelli/convertami/img/banner.png" alt="Convertami Logo"/>  
+</div>
 
-Convertami is a project designed to simplify and automate file conversion tasks. Whether you're dealing with documents, images, or other file types, Convertami has you covered.  
-Convertami è un progetto progettato per semplificare e automatizzare le attività di conversione dei file. Che si tratti di documenti, immagini o altri tipi di file, Convertami è la soluzione.
+---
 
-## Features / Funzionalità
+## 🚀 Caratteristiche Principali
 
-- **Multi-format Support**: Convert files between various formats with ease.  
-    **Supporto multi-formato**: Converte i file tra vari formati con facilità.
-- **User-friendly**: Simple and intuitive interface for all users.  
-    **Facile da usare**: Interfaccia semplice e intuitiva per tutti gli utenti.
-- **Fast and Reliable**: Optimized for speed and accuracy.  
-    **Veloce e affidabile**: Ottimizzato per velocità e precisione.
+| Feature                    | Descrizione IT                               | Description EN                         |
+| -------------------------- | -------------------------------------------- | -------------------------------------- |
+| 🔄 Multi‑format            | Converte documenti, immagini e altro ancora. | Convert documents, images and more.    |
+| 🤏 Intuitività             | UI semplice, zero curva di apprendimento.    | Zero‑learning‑curve, user‑friendly UI. |
+| ⚡️ Velocità & Affidabilità | Risultati rapidi, conversioni precise.       | Fast processing, reliable output.      |
 
-## Installation / Installazione
+---
 
-1. Clone the repository:  
-     Clona il repository:
-        ```bash
-        git clone https://github.com/riccardomurachelli/convertami.git
-        ```
-2. Navigate to the project directory:  
-     Vai alla directory del progetto:
-        ```bash
-        cd convertami
-        ```
-3. Install dependencies:  
-     Installa le dipendenze:
-        ```bash
-        npm install
-        ```
+## 🛠️ Installazione
 
-## Usage / Utilizzo
-
-Run the application with:  
-Esegui l'applicazione con:
 ```bash
-npm start
+# 1. Clona il progetto
+git clone https://github.com/riccardomurachelli/convertami.git
+
+# 2. Entra nella cartella
+cd convertami
+
+# 3. Installa dipendenze
+npm install
 ```
 
-Follow the on-screen instructions to convert your files.  
-Segui le istruzioni sullo schermo per convertire i tuoi file.
+---
 
-## Contributing / Contributi
+## ▶️ Avvio & Utilizzo
 
-Contributions are welcome! Please fork the repository and submit a pull request.  
-I contributi sono benvenuti! Effettua un fork del repository e invia una pull request.
+```bash
+node server.js
+```
 
-## License / Licenza
+<p>Apri il tuo browser e visita <a href="http://localhost:3000">http://localhost:3000</a> per vedere l'app in azione!</p>
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.  
-Questo progetto è concesso in licenza sotto la Licenza MIT. Consulta il file [LICENSE](LICENSE) per i dettagli.
+## 🤝 Contribuisci
+
+1. Fai un fork di questo repo
+2. Crea un branch feature: `git checkout -b feature/nome-feature`
+3. Applica le modifiche e committale: `git commit -m "Aggiungi nuova feature"`
+4. Pusha su origin: `git push origin feature/nome-feature`
+5. Apri una Pull Request
+
+Grazie di cuore in anticipo per il tuo contributo!
+
+---
+
+## 📄 Licenza
+
+Distribuito sotto licenza MIT.
+Vedi [LICENSE](LICENSE) per i dettagli.
+
+---
+
+<p align="center">  
+  <a href="https://app.netlify.com/sites/convertami/deploys">  
+    <img src="https://api.netlify.com/api/v1/badges/210d09f7-d25c-43da-b280-c4ee8f1fde1a/deploy-status" alt="Netlify Status"/>  
+  </a>
+    <br>netlify deploy status.  
+</p>
