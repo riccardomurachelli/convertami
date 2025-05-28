@@ -8,16 +8,16 @@
 /* Base styling */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f8f9fa;
+  background-color: #F4EDED;
   color: #333;
   line-height: 1.6;
 }
 body.dark-mode {
-  background-color: #121212;
+  background-color: #2B2C28;
   color: #ffffff;
 }
 .dark-mode .card {
-  background-color: #1e1e1e;
+  background-color: #363832;
   color: #ffffff;
 }
 .theme-toggle {
@@ -59,7 +59,7 @@ header {
   left: 0;
   width: 100%;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #FF7E5F, #FEB47B);
+  background: linear-gradient(135deg, #BA324F,#1E2EDE );
   color: #fff;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: padding 0.3s ease;
@@ -109,7 +109,7 @@ header.shrink .header-container p {
 
 /* dark mode override */
 body.dark-mode header {
-  background: linear-gradient(135deg, #6A11CB, #2575FC);
+  background: linear-gradient(135deg, #1E2EDE, #BA324F);
 }
 
 
@@ -136,7 +136,7 @@ body.dark-mode header {
 
 .card {
   display: block;
-  background: #fff;
+  background: #fffdfd;
   color: #333;
   text-decoration: none;
   padding: 30px 40px;

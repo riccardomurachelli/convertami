@@ -1,25 +1,38 @@
-const { exec } = require('child_process');
+const fs = require('fs');
 const path = require('path');
+const libre = require('libreoffice-convert');
 
-function convert(inputPath, format) {
+async function convert(inputPath, format) {
   return new Promise((resolve, reject) => {
-    const outDir = path.dirname(inputPath);
-    const cmd = `soffice --headless --convert-to ${format} --outdir ${outDir} ${inputPath}`;
-    exec(cmd, (err) => {
-      if (err) return reject(err);
-      const base = path.basename(inputPath);
-      const outputPath = path.join(outDir, `${base}.${format}`);
-      // wait a moment to ensure file write
-      setTimeout(() => resolve(outputPath), 500);
+    const ext = `.${format}`;
+    const outputPath = path.join(
+      path.dirname(inputPath),
+      path.basename(inputPath, path.extname(inputPath)) + ext
+    );
+
+    // Legge il file in un buffer
+    fs.readFile(inputPath, (readErr, data) => {
+      if (readErr) return reject(readErr);
+
+      // Converte il buffer
+      libre.convert(data, ext, undefined, (convertErr, done) => {
+        if (convertErr) return reject(convertErr);
+
+        // Scrive il buffer convertito su file
+        fs.writeFile(outputPath, done, writeErr => {
+          if (writeErr) return reject(writeErr);
+          resolve(outputPath);
+        });
+      });
     });
   });
 }
 
-function cleanup(inputPath, outputPath) {
-  [inputPath, outputPath].forEach(p => {
-    try { require('fs').unlinkSync(p); } catch {};
-  });
+function cleanup(...paths) {
+  for (const p of paths) {
+    try { fs.unlinkSync(p); }
+    catch (e) { /* ignora errori */ }
+  }
 }
 
 module.exports = { convert, cleanup };
-
