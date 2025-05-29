@@ -68,7 +68,7 @@ function convertUnits() {
     res = v * (m[t] / m[f]);
   }
   document.getElementById('result').innerText = `Risultato: ${res.toFixed(p)}`;
-  addHistory({ category: currentCategory, value: v, from: f, to: t, result: res });
+  addHistory({ category: currentCategory, value: v, from: f, to: t, cifre: p, result: res });
 }
 
 function convertTemperature(val, from, to) {
@@ -104,7 +104,7 @@ function renderHistory() {
   const list = document.getElementById('historyList'); list.innerHTML = '';
   history.slice(-5).reverse().forEach(e => {
     const li = document.createElement('li');
-    li.textContent = `${e.value} ${e.from} → ${e.result.toFixed(2)} ${e.to}`;
+    li.textContent = `${e.value} ${e.from} → ${e.result.toFixed(e.cifre)} ${e.to}`;
     list.appendChild(li);
   });
 }
