@@ -14,12 +14,26 @@ async function fetchCurrencies() {
   }
 }
 
-async function fetchUpdatedTime(){
+async function fetchUpdatedTime() {
   try {
     const response = await fetch('https://api.exchangerate-api.com/v4/latest/EUR');
     const data = await response.json();
     if (data.time_last_updated) {
-      return new Date(data.time_last_updated).toLocaleString();
+      // time_last_updated è un intero in secondi, lo moltiplichiamo per 1000 per ottenere millisecondi
+      const date = new Date(data.time_last_updated * 1000);
+      
+      // Opzioni per il formato data e ora (es. 29/05/2025 – 14:23:07)
+      const options = {
+        day:   '2-digit',
+        month: '2-digit',
+        year:  'numeric',
+        hour:   '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      };
+      
+      return date.toLocaleString('it-IT', options);
     } else {
       console.error("Error fetching update time");
       return "N/A";
@@ -29,6 +43,7 @@ async function fetchUpdatedTime(){
     return "N/A";
   }
 }
+
 
 async function populateCurrencies() {
   const currencyList = await fetchCurrencies();
@@ -50,6 +65,10 @@ async function populateCurrencies() {
   // Imposta valori di default
   currencyFrom.value = 'EUR';
   currencyTo.value = 'USD';
+
+  const updatedSpan = document.getElementById("last-updated");
+  const updatedTime = await fetchUpdatedTime();
+  updatedSpan.innerHTML = `Aggiornate al: <em>${updatedTime}</em>`;
 }
 
 async function convertCurrency() {
@@ -83,7 +102,7 @@ async function convertCurrency() {
     }
 
     // Calcola il tasso di conversione
-    const conversionRate = (rates[to] * rates[from]);
+    const conversionRate = rates[to];
     const result = numericAmount * conversionRate;
 
     resultElement.innerText = `Risultato: ${result.toFixed(2)} ${to}`;
