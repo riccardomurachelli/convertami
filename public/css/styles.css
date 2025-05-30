@@ -76,6 +76,7 @@ body {
   padding-top: var(--header-height);
   padding-top: calc(var(--header-height) + 40px); 
   transition: padding-top 0.3s ease;
+  visibility: hidden;
 }
 
 /* nav interno */

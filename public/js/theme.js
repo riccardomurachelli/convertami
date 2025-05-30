@@ -18,17 +18,18 @@ function toggleDarkMode(event) {
   body.style.setProperty('--x', `${x}px`);
   body.style.setProperty('--y', `${y}px`);
   body.classList.add('animating');
-  setTimeout(() => {
     body.classList.remove('animating');
     localStorage.setItem('darkMode', isDark);
     setTheme(isDark);
-  }, 300);
 }
 
 function applyThemeOnLoad() {
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const savedTheme = localStorage.getItem('darkMode');
   setTheme(savedTheme === null ? prefersDark : savedTheme === 'true');
+    setTimeout(() => {
+      document.body.style.visibility = 'visible';
+    }, 400);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
