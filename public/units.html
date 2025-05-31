@@ -4,44 +4,52 @@
 -->
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Primary Meta Tags -->
-<title>Convertami - Unità di Misura</title>
-<meta name="title" content="Convertami - Unità di Misura" />
-<meta name="description" content="Converti tutte le unità di misura con Convertami. Semplice e veloce!" />
+  <!-- Primary Meta Tags -->
+  <title>Convertami - Unità di Misura</title>
+  <meta name="title" content="Convertami - Unità di Misura" />
+  <meta name="description" content="Converti tutte le unità di misura con Convertami. Semplice e veloce!" />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://convertami.riccardomurachelli.it/units" />
-<meta property="og:title" content="Convertami - Unità di Misura" />
-<meta property="og:description" content="Converti tutte le unità di misura con Convertami. Semplice e veloce!" />
-<meta property="og:image" itemprop="image" content="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/banner.png" />
-<meta property="og:type" content="website" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="628" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://convertami.riccardomurachelli.it/units" />
+  <meta property="og:title" content="Convertami - Unità di Misura" />
+  <meta property="og:description" content="Converti tutte le unità di misura con Convertami. Semplice e veloce!" />
+  <meta property="og:image" itemprop="image"
+    content="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/banner.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="628" />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="https://convertami.riccardomurachelli.it/units" />
-<meta property="twitter:title" content="Convertami - Unità di Misura" />
-<meta property="twitter:description" content="Converti tutte le unità di misura con Convertami. Semplice e veloce!" />
-<meta property="twitter:image" content="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/banner.png" />
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://convertami.riccardomurachelli.it/units" />
+  <meta property="twitter:title" content="Convertami - Unità di Misura" />
+  <meta property="twitter:description" content="Converti tutte le unità di misura con Convertami. Semplice e veloce!" />
+  <meta property="twitter:image"
+    content="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/banner.png" />
 
-<!-- Meta Tags Generated with https://metatags.io -->
-  <meta name="keywords" content="convertitore unità, conversione unità, Convertami, converti unità online, units converter">
+  <!-- Meta Tags Generated with https://metatags.io -->
+  <meta name="keywords"
+    content="convertitore unità, conversione unità, Convertami, converti unità online, units converter">
   <meta name="author" content="Convertami Team">
   <meta name="theme-color" content="#4CAF50">
-  <link rel="icon" href="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/favicon-mobile.png" type="image/png">
+  <link rel="icon"
+    href="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/favicon.png"
+    type="image/png">
+  <link rel="apple-touch-icon"
+    href="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/favicon-mobile.png"
+    type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/theme.js" defer></script>
   <script src="js/units.js" defer></script>
-  <script data-goatcounter="https://convertami.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://convertami.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
+
 <body onload="applyThemeOnLoad()">
   <header>
     <nav aria-label="Navigazione principale">
@@ -55,47 +63,68 @@
   </header>
 
   <main>
-    <section class="converter" aria-labelledby="converter-heading">
-      <div class="tabs" role="tablist">
-        <button class="tab-button" role="tab" data-category="length" onclick="switchCategory('length')">Lunghezza</button>
-        <button class="tab-button" role="tab" data-category="weight" onclick="switchCategory('weight')">Peso</button>
-        <button class="tab-button" role="tab" data-category="temperature" onclick="switchCategory('temperature')">Temperatura</button>
-        <button class="tab-button" role="tab" data-category="filesize" onclick="switchCategory('filesize')">File Size</button>
-        <button class="tab-button" role="tab" data-category="speed" onclick="switchCategory('speed')">Velocità</button>
-        <button class="tab-button" role="tab" data-category="area" onclick="switchCategory('area')">Area</button>
-        <button class="tab-button" role="tab" data-category="volume" onclick="switchCategory('volume')">Volume</button>
-        <button class="tab-button" role="tab" data-category="time" onclick="switchCategory('time')">Tempo</button>
-        <button class="tab-button" role="tab" data-category="angle" onclick="switchCategory('angle')">Angolo</button>
-        <button class="tab-button" role="tab" data-category="energy" onclick="switchCategory('energy')">Energia</button>
-        <button class="tab-button" role="tab" data-category="power" onclick="switchCategory('power')">Potenza</button>
-        <button class="tab-button" role="tab" data-category="pressure" onclick="switchCategory('pressure')">Pressione</button>
-        <button class="tab-button" role="tab" data-category="frequency" onclick="switchCategory('frequency')">Frequenza</button>
-      </div>
-      <div class="controls">
-        <input type="number" id="inputValue" placeholder="Inserisci valore" class="input-field" aria-label="Valore da convertire">
-        <select id="unitFrom" class="select-field" aria-label="Unità di partenza"></select>
-        <button id="swapBtn" class="action-button" aria-label="Inverti unità" onclick="swapUnits()">⇄</button>
-        <select id="unitTo" class="select-field" aria-label="Unità di destinazione"></select>
-        <select id="precision" class="select-field" aria-label="Precisione decimali">
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2" selected>2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-        <button id="convertBtn" class="action-button" onclick="convertUnits()">Converti</button>
-      </div>
-      <div id="error" class="error-message" role="alert" style="display:none;"></div>
-      <h2 id="result" class="result-text" aria-live="polite"></h2>
-    </section>
-    <section class="history" aria-labelledby="history-heading">
-      <h3 id="history-heading">Cronologia (ultime 5)</h3>
-      <ul id="historyList" class="history-list"></ul>
-      <button onclick="exportHistory()" class="action-button">Esporta CSV</button>
-    </section>
+    <div class="container" style= "max-width: 700px; padding: 20px; margin-top:50px;"> 
+      <section class="converter" aria-labelledby="converter-heading">
+        <h2 id="converter-heading">Seleziona l'unità da convertire:</h2>
+          <div class="tabs" role="tablist">
+            <button class="tab-button" role="tab" data-category="length"
+              onclick="switchCategory('length')">Lunghezza</button>
+            <button class="tab-button" role="tab" data-category="weight"
+              onclick="switchCategory('weight')">Peso</button>
+            <button class="tab-button" role="tab" data-category="temperature"
+              onclick="switchCategory('temperature')">Temperatura</button>
+            <button class="tab-button" role="tab" data-category="filesize" onclick="switchCategory('filesize')">File
+              Size</button>
+            <button class="tab-button" role="tab" data-category="speed"
+              onclick="switchCategory('speed')">Velocità</button>
+            <button class="tab-button" role="tab" data-category="area" onclick="switchCategory('area')">Area</button>
+            <button class="tab-button" role="tab" data-category="volume"
+              onclick="switchCategory('volume')">Volume</button>
+            <button class="tab-button" role="tab" data-category="time" onclick="switchCategory('time')">Tempo</button>
+            <button class="tab-button" role="tab" data-category="angle"
+              onclick="switchCategory('angle')">Angolo</button>
+            <button class="tab-button" role="tab" data-category="energy"
+              onclick="switchCategory('energy')">Energia</button>
+            <button class="tab-button" role="tab" data-category="power"
+              onclick="switchCategory('power')">Potenza</button>
+            <button class="tab-button" role="tab" data-category="pressure"
+              onclick="switchCategory('pressure')">Pressione</button>
+            <button class="tab-button" role="tab" data-category="frequency"
+              onclick="switchCategory('frequency')">Frequenza</button>
+          </div>
+          <div id="controlloNascosti" class="">
+            <div class="controls">
+              <input type="number" id="inputValue" placeholder="Inserisci valore" class="input-field"
+                aria-label="Valore da convertire">
+                <h2 class="unit-label">Unità di partenza:</h2>
+              <select id="unitFrom" class="select-field" aria-label="Unità di partenza"></select>
+              <button id="swapBtn" class="action-button" aria-label="Inverti unità" onclick="swapUnits()">⇄</button>
+              <h2 class="unit-label">Unità di destinazione:</h2>
+              <select id="unitTo" class="select-field" aria-label="Unità di destinazione"></select>
+              <h2 class="unit-label">Precisione decimale:</h2>
+              <select id="precision" class="select-field" aria-label="Precisione decimali">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <button id="convertBtn" class="action-button" onclick="convertUnits()">Converti</button>
+            </div>
+            <div id="error" class="error-message" role="alert" style="display:none;"></div>
+            <h2 id="result" class="result-text" aria-live="polite"></h2>
+          </div>
+      </section>
+      <section class="" id="history" aria-labelledby="history-heading">
+        <h3 id="history-heading">Cronologia (ultime 5)</h3>
+        <ul id="historyList" class="history-list"></ul>
+        <button onclick="exportHistory()" class="action-button">Esporta CSV</button>
+      </section>
+    </div>
   </main>
   <footer>
     <p>&copy; 2025 Convertami. Tutti i diritti riservati.</p>
   </footer>
 </body>
+
 </html>

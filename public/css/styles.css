@@ -527,3 +527,45 @@ footer {
   position: static;   /* o relative, è equivalente qui */
   margin-top: 40px;    /* opzionale: spazio sopra il footer */
 }
+
+#converter-heading, .unit-label{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+#controlloNascosti {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+#controlloNascosti.visible {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+#history {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+#history.visible {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap; /* così non esce dallo schermo */
+  gap: 0.5rem; /* spazio tra gli elementi */
+  align-items: center; /* allineamento verticale perfetto */
+  justify-content: flex-start; /* o center, se vuoi centrati */
+  margin-top: 1rem;
+}
+
+.controls > * {
+  flex: 1 1 auto;
+  min-width: 150px; /* oppure quello che ti serve per la tua UI */
+}

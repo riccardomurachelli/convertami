@@ -40,11 +40,13 @@ function populateUnits(category) {
 }
 
 function switchCategory(category) {
+  document.getElementById("controlloNascosti").classList.add("visible");
   currentCategory = category;
   populateUnits(category);
   document.querySelectorAll('.tab-button').forEach(b => b.classList.toggle('active', b.dataset.category === category));
   document.getElementById('result').innerText = '';
   clearError();
+
 }
 
 function swapUnits() {
@@ -69,6 +71,8 @@ function convertUnits() {
   }
   document.getElementById('result').innerText = `Risultato: ${res.toFixed(p)}`;
   addHistory({ category: currentCategory, value: v, from: f, to: t, cifre: p, result: res });
+  document.getElementById("history").classList.add("visible");
+
 }
 
 function convertTemperature(val, from, to) {
