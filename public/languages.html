@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertami - Traduttore Online</title>
+    <meta name="title" content="Convertami - Traduttore Online" />
+    <meta name="description" content="Traduci testi tra diverse lingue con Convertami. Facile, veloce e gratuito!" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://convertami.riccardomurachelli.it/languages" />
+    <meta property="og:title" content="Convertami - Traduttore Online" />
+    <meta property="og:description" content="Traduci testi tra diverse lingue con Convertami. Facile, veloce e gratuito!" />
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/banner.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://convertami.riccardomurachelli.it/languages" />
+    <meta property="twitter:title" content="Convertami - Traduttore Online" />
+    <meta property="twitter:description" content="Traduci testi tra diverse lingue con Convertami. Facile, veloce e gratuito!" />
+    <meta property="twitter:image"
+        content="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/banner.png" />
+
+    <meta name="keywords"
+        content="traduttore online, traduci testo, Convertami, traduzione lingue, language translator">
+    <meta name="author" content="Convertami Team">
+    <meta name="theme-color" content="#4CAF50">
+    <link rel="icon"
+        href="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/favicon.png"
+        type="image/png">
+    <link rel="apple-touch-icon"
+        href="https://raw.githubusercontent.com/riccardomurachelli/convertami/refs/heads/main/img/favicon-mobile.png"
+        type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/theme.js" defer></script>
+    <script src="js/languages.js" defer></script>
+    <script data-goatcounter="https://convertami.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+
+<body onload="applyThemeOnLoad()">
+    <header>
+        <nav aria-label="Navigazione principale">
+            <button class="torna-home" onclick="window.location.href='index.html'">← Torna alla Home</button>
+            <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleDarkMode(event)"></button>
+        </nav>
+        <div class="header-container">
+            <h1>Convertami: Traduttore Online</h1>
+            <p>Traduci testi tra decine di lingue in modo semplice e veloce</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" style="max-width: 700px; padding: 20px; margin-top:50px;">
+            <section class="translator" aria-labelledby="translator-heading">
+                <h2 id="translator-heading">Traduci il tuo testo:</h2>
+                <div class="controls">
+                    <label for="sourceLang" class="unit-label">Lingua di partenza:</label>
+                    <select id="sourceLang" class="select-field" aria-label="Lingua di partenza"></select>
+                    <button id="swapLangBtn" class="action-button" aria-label="Inverti lingue" onclick="swapLanguages()">⇄</button>
+                    <label for="targetLang" class="unit-label">Lingua di destinazione:</label>
+                    <select id="targetLang" class="select-field" aria-label="Lingua di destinazione"></select>
+                    <label for="inputText" class="unit-label">Testo da tradurre:</label>
+                    <textarea id="inputText" class="input-field" rows="4" placeholder="Inserisci il testo qui"></textarea>
+                    <button id="translateBtn" class="action-button" onclick="translateText()">Traduci</button>
+                </div>
+                <div id="error" class="error-message" role="alert" style="display:none;"></div>
+                <h2 class="unit-label">Risultato:</h2>
+                <textarea id="outputText" class="input-field" rows="4" readonly aria-live="polite"></textarea>
+            </section>
+            <section id="history" aria-labelledby="history-heading">
+                <h3 id="history-heading">Cronologia traduzioni (ultime 5)</h3>
+                <ul id="historyList" class="history-list"></ul>
+                <button onclick="exportHistory()" class="action-button">Esporta CSV</button>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Convertami. Tutti i diritti riservati.</p>
+    </footer>
+</body>
+
+</html>
